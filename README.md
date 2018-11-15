@@ -4,7 +4,17 @@ Birinder Singh (birinder1469)
 
 Analysis of TripAdvisor ratings of Las Vegas hotels.  
 
-This project analyzes the TripAdvisor reviews for a number of Las Vegas hotels. In particular, we are interested in whether or not a hotel's star rating is related to TripAdvisor users' scoring of the hotel. Do hotels rated above 4 stars get higher scores from TripAdvisor users? This is an inferential question. 
+This project analyzes the TripAdvisor reviews for a number of Las Vegas hotels. In particular, we are interested in whether or not a hotel's star rating is related to TripAdvisor users' scoring of the hotel. Do hotels rated above four stars get higher scores from TripAdvisor users? This is an inferential question.   
 
-We plan to answer this question by first estimating the mean user scores and then performing a two-group hypothesis test. We will compare the user ratings of hotels rated above 4 stars and hotels rated 4 stars or less. 
+We plan to answer this question by performing a two-group hypothesis test to compare user scores of hotels rated above four stars and hotels rated four stars or less.  Our null and alternative hypotheses are stated below:  
+
+$H_0$: The average TripAdvisor user score for hotels rated above four stars and hotels rated less than or equal to four stars are the same.  
+
+$H_1$: The average TripAdvisor user score for hotels rated above four stars and hotels rated less than or equal to four stars are not the same.  
+
+
+To summarize the results, we plan to show a plot showing where the test statistic falls on the null distribution, and a plot of the estimates with error bars for each group.  
+
+
+
 
