@@ -1,5 +1,6 @@
 library(tidyverse)
 
-hotels_data <- read_delim("LasVegasTripAdvisorReviews-Dataset.csv", delim = ";")
+hotels_data <- read_delim("data/TripAdvisorReviews_dataset.csv", delim = ";")
+
 
 
