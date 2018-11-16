@@ -13,7 +13,7 @@ We plan to answer this question by performing a two-group hypothesis test to com
 > Alternative: The average TripAdvisor user scores for hotels rated above four stars and hotels rated less than or equal to four stars are not the same.  
 
 
-To summarize the results, we plan produce a plot showing where the test statistic falls on the null distribution, and a plot of the estimates with error bars for each group.  
+To summarize the results, we plan produce a plot showing where the test statistic falls on the null distribution, and a plot of the estimates with error bars for each group.  We will also report a p-value. 
 
 
 
