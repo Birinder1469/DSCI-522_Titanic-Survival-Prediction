@@ -1,20 +1,34 @@
 # DSCI-522_Las-Vegas-Hotels
-Alden Chen (aldenchen)  
+
+Team members :
+Alden Chen (aldenchen)
 Birinder Singh (birinder1469)  
 
-Analysis of TripAdvisor ratings of Las Vegas hotels.  
+# Analysis Question
+Which was the strongest indicator/predictor of the survival of the passengers in the Titanic tragedy and will the passengers in the Test data set survive or not ?
 
-This project analyzes TripAdvisor reviews for a number of Las Vegas hotels. In particular, we are interested in whether or not a hotel's star rating is related to TripAdvisor users' scores of the hotel. Do hotels rated above four stars get higher scores from TripAdvisor users than hotels rated four stars or less? This is an inferential question.   
+# Data Overview:
+We have the dataset from [Kaggle](https://www.kaggle.com/c/titanic) with the details of the passengers on Titanic when it crashed. We also have the output as to which of these passengers survived and who all did not.
+There is another test data set in which we have all the details of another set of passengers without the information of if they survived or not.
 
-We plan to answer this question by performing a two-group hypothesis test to compare user scores of hotels rated above four stars and hotels rated four stars or less.  Our null and alternative hypotheses are stated below:  
+Below is the detail of the variables in the training dataset :
 
-> Null: The average TripAdvisor user scores for hotels rated above four stars and hotels rated less than or equal to four stars are the same.  
+| Variable	|Definition	| Key|
+|----|----|----|
+|survival|	Survival|	0 = No, 1 = Yes|
+|pclass	|Ticket class	|1 = 1st, 2 = 2nd, 3 = 3rd|
+|sex	|Sex	| |
+|Age|	Age in years	| |
+|sibsp	|# of siblings / spouses aboard the Titanic	| |
+|parch	|# of parents / children aboard the Titanic	| |
+|ticket	|Ticket number	| |
+|fare	|Passenger fare	| |
+|cabin	|Cabin number	| |
+|embarked	|Port of Embarkation|	C = Cherbourg, Q = Queenstown, S = Southampton|
 
-> Alternative: The average TripAdvisor user scores for hotels rated above four stars and hotels rated less than or equal to four stars are not the same.  
 
+# Workflow
+Since this is a prediction problem we aim to use the Classification Decision Tree to train our model and see which variables were the strongest predictor of the survival of the passengers on the Titanic. We will also use the model we obtain on the Test data and check the accuracy.
 
-To summarize the results, we plan produce a plot showing where the test statistic falls on the null distribution, and a plot of the estimates with error bars for each group.  We will also report a p-value. 
-
-
-
-
+# Deliverables :
+We are aiming to provide the Decision tree from the Trained model and the results of the model tested on the Test data with the accuracy confirmed from Kaggle.
