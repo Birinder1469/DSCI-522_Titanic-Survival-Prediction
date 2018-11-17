@@ -8,7 +8,7 @@ Birinder Singh (birinder1469)
 What are the two strongest predictors of survival for Titanic passengers? This is a predictive question. 
 
 ## Data Overview:
-We have two datasets from [Kaggle](https://www.kaggle.com/c/titanic) with the details on the Titanic passengers and information on whether or not they survived. One is for training and the other is for testing. Below is a summary of the features in the dataset. The script for loading the data in the [src](https://github.com/UBC-MDS/DSCI-522_Titanic-Survival-Prediction/blob/master/src/load-training-data.ipynb) directory. 
+We have two datasets from [Kaggle](https://www.kaggle.com/c/titanic) with the details on the Titanic passengers and information on whether or not they survived. One is for training and the other is for testing. Below is a summary of the features in the dataset. The script for loading the data in the [src](https://github.com/UBC-MDS/DSCI-522_Titanic-Survival-Prediction/blob/master/src/load-training-data.py) directory. 
 
 | Variable	|Definition	| Key|
 |----|----|----|
