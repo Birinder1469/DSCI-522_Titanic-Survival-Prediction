@@ -1,8 +1,8 @@
-# DSCI-522_Titanic_Tragedy
+# Predictors of Survival for Titanic Passengers
 
-Team members :
-Alden Chen (aldenchen)
-Birinder Singh (birinder1469)  
+Team members:  
+Alden Chen (aldenchen)  
+Birinder Singh (birinder1469)    
 
 ##  Question
 What are the two strongest predictors of survival for Titanic passengers? This is a predictive question. 
