@@ -1,3 +1,4 @@
+#! /usr/bin/env Rscript 
 library(tidyverse)
 
 # read in command line arguments
@@ -5,19 +6,21 @@ args <- commandArgs(trailingOnly = TRUE)
 input_file <- args[1]
 output_file <- args[2]
 
-# input_file <- read_csv("data/train.csv")
-# output_file <- "data/titanic.csv"
+# input_file <- "data/train.csv"
+# output_file <- "data/test.csv"
 
 # main function for cleaning titanic data
 main <- function(){
-  titanic_data <- input_file %>% 
+  require(tidyverse)
+  titanic_data <- read_csv(input_file)
+  titanic_data <- titanic_data %>% 
     mutate(Embarked = as.factor(Embarked),
            Sex = as.factor(Sex)) %>% 
-    mutate(Embarked = fct_recode(input_file$Embarked, 
-                      "1" = "C",
-                      "2" = "Q",
-                      "3" = "S"),
-           Sex = fct_recode(input_file$Sex,
+    mutate(Embarked = fct_recode(titanic_data$Embarked, 
+                                 "1" = "C",
+                                 "2" = "Q",
+                                 "3" = "S"),
+           Sex = fct_recode(titanic_data$Sex,
                             "1" = "male",
                             "0" = "female")) %>% 
     filter(is.na(Embarked) == FALSE,
@@ -27,6 +30,8 @@ main <- function(){
            is.na(SibSp) == FALSE,
            is.na(Parch) == FALSE,
            is.na(Survived) == FALSE)
+
+  
   write_csv(titanic_data, output_file)
   }
 
