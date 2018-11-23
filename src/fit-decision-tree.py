@@ -14,7 +14,7 @@ args=parser.parse_args()
 # function to save a plot of decision tree
 def save_and_show_decision_tree(model, 
                                 class_names=[0,1], 
-                                save_file_prefix = args.output_file_location + '/DecisionTree', **kwargs):
+                                save_file_prefix = args.output_file_location + '/plot_decision-tree', **kwargs):
     
     features=["Pclass", "Sex", "Age", "SibSp", "Parch", "Fare", "Embarked" ]
     dot_data = tree.export_graphviz(model, out_file=None, 
