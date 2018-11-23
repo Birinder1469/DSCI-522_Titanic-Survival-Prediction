@@ -1,4 +1,12 @@
 #! /usr/bin/env Rscript 
+# Authors: Alden Chen, Birinder Singh
+# Date: 2018/11/23
+# This script takes in the train.csv data and does some
+# cleaning It produces and saves a cleaned dataset to the
+# data folder It takes two arguments: the input filepath and the outpu filepath
+# usage: Rscript src/cleaning.R "data/train.csv" data/titanic_data.csv"
+
+
 library(tidyverse)
 
 # read in command line arguments
@@ -15,7 +23,8 @@ main <- function(){
   titanic_data <- read_csv(input_file)
   titanic_data <- titanic_data %>% 
     mutate(Embarked = as.factor(Embarked),
-           Sex = as.factor(Sex)) %>% 
+           Sex = as.factor(Sex),
+           Survived = as.factor(Survived)) %>% 
     mutate(Embarked = fct_recode(titanic_data$Embarked, 
                                  "1" = "C",
                                  "2" = "Q",

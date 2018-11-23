@@ -24,7 +24,28 @@ Decision Tree classification using this depth is carried out and the
 feature with maximum contribution to the survival is calculated.
 From the analysis we conclude that the two best predictors of survival for Titanic passengers are sex and passenger class.
 
-## Execution
+## Usage
+
+Clone this repo, and using the command line, navigate to the root of this project.
+
+Run the following commands:
+
+``` sh
+Rscript src/cleaning.R 'data/train.csv' 'data/titanic_data.csv'
+Rscript src/eda.R 'data/titanic_data.csv' 'results'
+python src/hyperparameter-tuning.py 'data/titanic_data.csv' 'data' 'results'
+python src/fit-decision-tree.py 'data' 'results'
+Rscript -e "rmarkdown::render('doc/report_titanic-predictors.Rmd')"
+```
+
+or on your command shell
+
+```sh
+bash run_all.sh
+The report will be generated under the doc/directory
+```
+
+
 
 The analysis contains 4 scripts which need to be run in the same order in run_all.sh script:
 
@@ -46,10 +67,10 @@ They have been preloaded in the scripts.
 
 | R     | Python    |
 | :------------- | :------------- |
-| ggplot2       | pandas      |
-| tidyverse       | numpy       |
-| grid       | sklearn     |
-| png       | argparse       |
-| gridExtra       | graphviz       |
-|       | matplotlib       |
-|        | os       |
+| `ggplot2`       |`` pandas  ``    |
+| `tidyverse`       |`` numpy  ``     |
+| `grid `    |`` sklearn  ``   |
+| `png`       | `argparse `      |
+| `gridExtra `      | `graphviz `    |
+|       | `matplotlib`       |
+|        | `os `     |
