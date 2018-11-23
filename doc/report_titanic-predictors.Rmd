@@ -25,6 +25,7 @@ Our target variable is `Survived`, a dummy variable that takes the value `0` is 
 
 In this section, we look at some plots of the data and discuss their implications for prediction.  
 
+*Figure 1: Bar Plots, Number of Survivors by Passenger Class, Sex, and Port of Embarkation*
 ```{r fig.width=9, fig.height=5,echo=FALSE}
 library(png)
 library(grid)
@@ -40,7 +41,7 @@ In the three bar plots above, we compare the number of people who survived based
 
 For port of embarkation, the vast majority of passengers boarded at Southampton, which appears to have similar rates to Queenstown passengers. Cherbourg passengers seem to have a much higher survival rate than passengers who boarded at other ports. Given the small number of Cherbourg passengers, it is unclear if port of embarkation will be a good predictor of survival.  
 
-
+*Figure 2: Box Plots, Survival vs Age and Survival vs Fare*  
 ```{r fig.width=6, fig.height=3,echo=FALSE}
 
 library(png)
@@ -58,8 +59,9 @@ For fare, it appears that passengers who survived paid higher fares. This is lik
 
 ## Model Development  
 
-To decide on the appropriate depth of the tree, we used five-fold cross validation. Below is a plot of the validation performance for different depths of trees. We can see a clear spike in the average accuracy at a depth of 3. 
-  
+To decide on the appropriate depth of the tree, we used five-fold cross validation. Below is a plot of the validation performance for different depths of trees. We can see a clear spike in the average accuracy at a depth of 3.   
+
+*Figure 3: Validation Performance, 5-Fold Cross Validation*  
 ```{r fig.width=3, fig.height=3,echo=FALSE}
 library(png)
 library(grid)
@@ -72,7 +74,7 @@ img <- readPNG("../results/validation_5-fold-performance-plot.png")
 
 After fitting a model of depth three, we looked at the feature importances of our model. The plot below summarizes our results. We can see that the two best predictors of survival for Titanic passengers are sex and passenger class. This supports our initial observations from the exploratory plots that we produced.  
 
-
+*Figure 4: Feature Importances*  
 ```{r fig.width=3, fig.height=3,echo=FALSE}
 library(png)
 library(grid)
