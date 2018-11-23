@@ -1,5 +1,12 @@
 #! /usr/bin/env Rscript 
-## some plots for EDA
+# Authors: Alden Chen, Birinder Singh
+# Date: 2018/11/23
+# This script takes in the titanic dataset and does some
+# exploratory data analysis. It produces a set of box and 
+# bar plots and saves them to the specified folder. It takes
+# two arguments: the input file location, and the folder to store
+# the results in
+# usage: Rscript src/eda.R "data/titanic_data.csv" "results"
 
 library(tidyverse)
 library(grid)
@@ -15,12 +22,14 @@ main <- function(){
   require(grid)
   titanic_data <- read_csv(input)
   
+  # create factors
   titanic_data <- titanic_data %>% 
     mutate(Sex = as.factor(Sex),
            Survived = as.factor(Survived),
            Embarked = as.factor(Embarked),
            Pclass = as.factor(Pclass)) 
   
+  # replace 1s and 0s with category names
   titanic_data <- titanic_data %>% 
     mutate(Survived = fct_recode(titanic_data$Survived,
                       "Survived" = "1",
@@ -29,6 +38,7 @@ main <- function(){
                             "Female" = "0",
                             "Male" = "1"))
   
+  # box plot of port of age vs survival
   boxplot_age <- titanic_data %>% 
     ggplot(aes(x = Survived, y = Age)) +
     geom_boxplot() +
@@ -36,6 +46,7 @@ main <- function(){
     ggtitle("Survival vs Age") +
     xlab(" ")
   
+  # box plot of port of fare vs survival
   boxplot_fare <- titanic_data %>% 
     ggplot(aes(x = Survived, y = Fare)) +
     geom_boxplot() +
@@ -44,11 +55,13 @@ main <- function(){
     ggtitle("Survival vs Fare") +
     xlab(" ")
   
+  # bar plot of count of survivors
   barplot_survival <- titanic_data %>% 
     ggplot(aes(x = Survived)) +
     geom_bar() +
     ggtitle("Survival")
   
+  # bar plot of port of sex vs survival
   barplot_sex_survival <- titanic_data %>%
     ggplot(aes(x = Survived)) +
     geom_bar() +
@@ -56,6 +69,7 @@ main <- function(){
     ggtitle("Survival by Sex") +
     xlab(" ")
   
+  # bar plot of port of passenger class vs survival
   barplot_class_survival <- titanic_data %>% 
     ggplot(aes(x = Survived)) +
     geom_bar() +
@@ -63,6 +77,7 @@ main <- function(){
     ggtitle("Survival by Cabin Class") +
     xlab(" ")
   
+  # bar plot of port of embarkation vs survival
   barplot_port_survival <- titanic_data %>% 
     mutate(Embarked = fct_recode(titanic_data$Embarked, 
                                  "Cherbourg" = "1",
@@ -74,7 +89,7 @@ main <- function(){
     ggtitle("Survival by Embarkation Port")+
     xlab(" ")
   
-
+  # save plots
   ggsave("eda_boxplot-age-survival.png", plot = boxplot_age, device = "png",
          path = output)
   ggsave("eda_boxplot-fare-survival.png", plot = boxplot_fare, device = "png",
