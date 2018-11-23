@@ -1,7 +1,10 @@
-
-# This script takes in the Trainining dataset and implements the Decision Tree algorithm on it.
-# It also computes the feature importance as to how much the criterion was reduced by each feature.
-# It outputs the plot of the Decision Tree and the plot showing the significance of different features in predicting if the Passenger survived or not.
+##! /usr/bin/env Rscript 
+# Authors: Alden Chen, Birinder Singh
+# Date: 2018/11/23
+# This script takes in the training dataset and fits a depth 3 decision tree.
+# It also computes the feature importance for the tree and produces a plot.
+# A plot of the tree and a plot of the feature importances are saved 
+# usage: python src/fit-decision-tree.py "data" "results"
 
 # Import required libraries
 import argparse
