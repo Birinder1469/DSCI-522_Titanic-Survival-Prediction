@@ -90,3 +90,12 @@ library(grid)
 img <- readPNG("../results/plot_feature-importance.png")
  grid.raster(img)
 ```
+
+```{r fig.width=7, fig.height=5,echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG('../results/plot_decision-tree.png')
+grid.raster(img)
+
+```
+
