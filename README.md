@@ -5,10 +5,10 @@ Alden Chen (aldenchen)
 Birinder Singh (birinder1469)    
 
 ##  Question
-What are the two strongest predictors of survival for Titanic passengers? This is a predictive question. 
+What are the two strongest predictors of survival for Titanic passengers? This is a predictive question.
 
 ## Data Overview
-We have two datasets from [Kaggle](https://www.kaggle.com/c/titanic) with the details on the Titanic passengers and information on whether or not they survived. One is for training and the other is for testing. Below is a summary of the features in the dataset. The script for loading the data in the [src](https://github.com/UBC-MDS/DSCI-522_Titanic-Survival-Prediction/blob/master/src/load-training-data.py) directory. 
+We have two datasets from [Kaggle](https://www.kaggle.com/c/titanic) with the details on the Titanic passengers and information on whether or not they survived. One is for training and the other is for testing. Below is a summary of the features in the dataset. The script for loading the data in the [src](https://github.com/UBC-MDS/DSCI-522_Titanic-Survival-Prediction/blob/master/src/load-training-data.py) directory.
 
 | Variable	|Definition	| Key|
 |----|----|----|
@@ -29,4 +29,35 @@ Using the training data, we will generate a classification tree model to predict
 
 ## Deliverables  
 
-To summarize our results, we will produce a bar plot with the features and their importance scores. We will also submit a plot of the classification tree and report the overall accuracy of our model. 
+To summarize our results, we will produce a bar plot with the features and their importance scores. We will also submit a plot of the classification tree and report the overall accuracy of our model.
+
+## Execution
+
+The analysis contains 4 scripts namely which need to be run in the same order :
+- cleaning.R,
+- eda.R
+- hyperparameter-tuning.py
+- fit-decision-tree.py
+
+![Execution workflow](doc/Execution_workflow.png)
+
+
+
+
+
+
+## Package Dependencies
+R version 3.5 or above and Python 3.0 is recommended to be used for running this analysis.
+
+To run the analysis following packages need to be installed.
+They have been preloaded in the scripts.
+
+| R     | Python    |
+| :------------- | :------------- |
+| ggplot2       | pandas      |
+| tidyverse       | numpy       |
+| grid       | sklearn     |
+| png       | argparse       |
+| gridExtra       | graphviz       |
+|       | matplotlib       |
+|        | os       |
