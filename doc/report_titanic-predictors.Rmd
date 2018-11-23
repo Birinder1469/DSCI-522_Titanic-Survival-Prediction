@@ -81,3 +81,13 @@ library(grid)
 img <- readPNG("../results/plot_feature-importance.png")
  grid.raster(img)
 ```
+
+
+
+## References
+
+Kaggle.(2012). *Titanic: Machine Learning from Disaster* [Data files and description]. Retrieved from:                 https://www.kaggle.com/c/titanic    
+
+scikit-learn developers. (2018). *sklearn.tree.DecisionTreeClassifier*.  Retrieved from:  
+   https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html
+
