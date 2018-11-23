@@ -30,6 +30,7 @@ main <- function(){
     ggplot(aes(x = Survived, y = Fare)) +
     geom_boxplot() +
     geom_jitter(alpha = 0.2) +
+    ylim(0, 135) +
     xlab("Survived") +
     ggtitle("Survival vs Fare")
   
