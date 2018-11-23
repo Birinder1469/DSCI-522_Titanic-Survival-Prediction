@@ -19,60 +19,46 @@ Our target variable is `Survived`, a dummy variable that takes the value `0` is 
 |Sex	               |Male or Female |    
 |Age                 |Age of each passenger years	|
 |Siblings/Spouses	   |Number of siblings and spouses aboard the Titanic |
-|Parents/Children	   |Number of arents and children aboard the Titanic |
+|Parents/Children	   |Number of parents and children aboard the Titanic |
 |Fare	               |The amount each passenger paid for a his or her ticket |
 |Port of Embarkation |Cherbourg, Queenstown, or Southampton |
 
 In this section, we look at some plots of the data and discuss their implications for prediction.  
 
-
-
-```{r fig.width=3, fig.height=3,echo=FALSE}
+```{r fig.width=9, fig.height=5,echo=FALSE}
 library(png)
 library(grid)
-img <- readPNG("../results/eda_barplot-survival.png")
- grid.raster(img)
-```
-
-
-```{r fig.width=3, fig.height=3,echo=FALSE}
-library(png)
-library(grid)
-img <- readPNG("../results/eda_barplot-class-survival.png")
- grid.raster(img)
-```
-
-```{r fig.width=3, fig.height=3,echo=FALSE}
-library(png)
-library(grid)
-img <- readPNG("../results/eda_barplot-sex-survival.png")
- grid.raster(img)
-```
-
-```{r fig.width=3, fig.height=3,echo=FALSE}
-library(png)
-library(grid)
-img <- readPNG("../results/eda_barplot-port-survival.png")
- grid.raster(img)
-```
-
-```{r fig.width=3, fig.height=3,echo=FALSE}
-library(png)
-library(grid)
-img <- readPNG("../results/eda_boxplot-age-survival.png")
- grid.raster(img)
-```
-
-```{r fig.width=3, fig.height=3,echo=FALSE}
-library(png)
-library(grid)
-img <- readPNG("../results/eda_boxplot-fare-survival.png")
- grid.raster(img)
+library(gridExtra)
+img1 <-  rasterGrob(as.raster(readPNG("../results/eda_barplot-class-survival.png")), interpolate = FALSE)
+img2 <-  rasterGrob(as.raster(readPNG("../results/eda_barplot-sex-survival.png")), interpolate = FALSE)
+img3 <-  rasterGrob(as.raster(readPNG("../results/eda_barplot-port-survival.png")), interpolate = FALSE)
+grid.arrange(img1, img2, img3, ncol = 3)  
 ```  
+ 
+
+In the three bar plots above, we compare the number of people who survived based on passengers' sex, port of embarkation, and cabin class. We can see that there appears to be a large difference between in the number of passengers that survived based on sex. For female passengers, there are more passengers who survived than passengers than died, while the opposite is true for male passengers.  We see a similar trend for cabin class. Among first class passengers, there are more survivors than non-survivors, while among third class passengers, there are many more non-survivors than survivors.This suggests that sex and passenger class could be important features for predicting survival.  
+
+For port of embarkation, the vast majority of passengers boarded at Southampton, which appears to have similar rates to Queenstown passengers. Cherbourg passengers seem to have a much higher survival rate than passengers who boarded at other ports. Given the small number of Cherbourg passengers, it is unclear if port of embarkation will be a good predictor of survival.  
 
 
-## Model Development
-- Dicussion of cross-validation to select hyperparameter and fitting the model  
+```{r fig.width=6, fig.height=3,echo=FALSE}
+
+library(png)
+library(grid)
+library(gridExtra)
+img1 <-  rasterGrob(as.raster(readPNG("../results/eda_boxplot-age-survival.png")), interpolate = FALSE)
+img2 <-  rasterGrob(as.raster(readPNG("../results/eda_boxplot-fare-survival.png")), interpolate = FALSE)
+grid.arrange(img1, img2, ncol = 2)
+
+```
+
+The box plots above show the distribution of ages and fares of the passengers based on whether or not they survived. There does not seems to be only a small difference in the ages of passengers who survived and those who did not, so age likely would not be a very important feature for predicting survival.  
+
+For fare, it appears that passengers who survived paid higher fares. This is likely related to the trend that there were more first class survivors than second or third class survivors. Presumably, first class passengers paid higher fares, so it is not surprising that survivors on average paid higher fares.  
+
+## Model Development  
+
+To decide on the appropriate depth of the tree, we used five-fold cross validation. Below is a plot of the validation performance for different depths of trees. We can see a clear spike in the average accuracy at a depth of 3. 
   
 ```{r fig.width=3, fig.height=3,echo=FALSE}
 library(png)
@@ -83,6 +69,8 @@ img <- readPNG("../results/validation_5-fold-performance-plot.png")
 
 
 ## Results  
+
+After fitting a model of depth three, we looked at the feature importances of our model. The plot below summarizes our results. We can see that the two best predictors of survival for Titanic passengers are sex and passenger class. This supports our initial observations from the exploratory plots that we produced.  
 
 ```{r fig.width=3, fig.height=3,echo=FALSE}
 library(png)
