@@ -24,8 +24,8 @@ def save_and_show_decision_tree(model,
                                  special_characters=True, **kwargs)
 
     graph = graphviz.Source(dot_data)
-    graph.render(save_file_prefix)
     graph.format='png'
+    graph.render(save_file_prefix)
     return graph
 
 # define main function
