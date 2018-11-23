@@ -4,46 +4,38 @@ Team members:
 Alden Chen (aldenchen)  
 Birinder Singh (birinder1469)    
 
-##  Question
-What are the two strongest predictors of survival for Titanic passengers? This is a predictive question.
+## Analysis
 
-## Data Overview
-We have two datasets from [Kaggle](https://www.kaggle.com/c/titanic) with the details on the Titanic passengers and information on whether or not they survived. One is for training and the other is for testing. Below is a summary of the features in the dataset. The script for loading the data in the [src](https://github.com/UBC-MDS/DSCI-522_Titanic-Survival-Prediction/blob/master/src/load-training-data.py) directory.
+The target variable for the analysis is Survived, a dummy variable that takes the value 0 if the passenger did not survive and
+1 is he or she did survive. We have data on 712 passengers for these seven features :
 
-| Variable	|Definition	| Key|
-|----|----|----|
-|survival|	Survival|	0 = No, 1 = Yes|
-|pclass	|Ticket class	|1 = 1st, 2 = 2nd, 3 = 3rd|
-|sex	|Sex	| |
-|Age|	Age in years	| |
-|sibsp	|# of siblings / spouses aboard the Titanic	| |
-|parch	|# of parents / children aboard the Titanic	| |
-|ticket	|Ticket number	| |
-|fare	|Passenger fare	| |
-|cabin	|Cabin number	| |
-|embarked	|Port of Embarkation|	C = Cherbourg, Q = Queenstown, S = Southampton|
+|Feature	           |Description	                                    |
+|--------------------|-------------------------------------------------|
+|Passenger Class	   |First, Second or Third Class |
+|Sex	               |Male or Female |    
+|Age                 |Age of each passenger years	|
+|Siblings/Spouses	   |Number of siblings and spouses aboard the Titanic |
+|Parents/Children	   |Number of parents and children aboard the Titanic |
+|Fare	               |The amount each passenger paid for a his or her ticket |
 
-
-## Analysis Plan  
-Using the training data, we will generate a classification tree model to predict whether or not a titanic passenger survived the accident. We will then use the test data provided to test the model's accuracy and make adjustments to the model as needed. After finalizing our model, we will use the `feature_importances` field to determine which features are the best predictors of survival.
-
-## Deliverables  
-
-To summarize our results, we will produce a bar plot with the features and their importance scores. We will also submit a plot of the classification tree and report the overall accuracy of our model.
+We carry out the Exploratory data analysis to visualize the dependence of different features on the chances of survival.
+Cross validation level 5 is carried out to find the depth giving maximum accuracy for the test dataset.
+Decision Tree classification using this depth is carried out and the
+feature with maximum contribution to the survival is calculated.
+From the analysis we conclude that the two best predictors of survival for Titanic passengers are sex and passenger class.
 
 ## Execution
 
-The analysis contains 4 scripts namely which need to be run in the same order :
-- cleaning.R,
+The analysis contains 4 scripts which need to be run in the same order in run_all.sh script:
+
+- cleaning.R
 - eda.R
 - hyperparameter-tuning.py
 - fit-decision-tree.py
 
+Flowchart with details of execution, inputs and outputs for each script:
+
 ![Execution workflow](doc/Execution_workflow.png)
-
-
-
-
 
 
 ## Package Dependencies
