@@ -34,7 +34,6 @@ img <- readPNG("../results/eda_barplot-survival.png")
  grid.raster(img)
 ```
 
-
 ```{r fig.width=3, fig.height=3,echo=FALSE}
 library(png)
 library(grid)
@@ -70,7 +69,6 @@ img <- readPNG("../results/eda_boxplot-fare-survival.png")
  grid.raster(img)
 ```  
 
-
 ## Model Development
 - Dicussion of cross-validation to select hyperparameter and fitting the model  
   
@@ -80,7 +78,6 @@ library(grid)
 img <- readPNG("../results/validation_5-fold-performance-plot.png")
  grid.raster(img)
 ```  
-
 
 ## Results  
 
@@ -98,4 +95,3 @@ img <- readPNG('../results/plot_decision-tree.png')
 grid.raster(img)
 
 ```
-
