@@ -1,4 +1,9 @@
 
+# This script takes in the Trainining dataset and implements the Decision Tree algorithm on it.
+# It also computes the feature importance as to how much the criterion was reduced by each feature.
+# It outputs the plot of the Decision Tree and the plot showing the significance of different features in predicting if the Passenger survived or not.
+
+# Import required libraries
 import argparse
 import numpy as np
 from sklearn import tree
