@@ -4,6 +4,9 @@ Team members:
 Alden Chen (aldenchen)  
 Birinder Singh (birinder1469)    
 
+## Question
+What are the two strongest predictors of survival for Titanic passengers?
+
 ## Analysis
 
 The target variable for the analysis is Survived, a dummy variable that takes the value 0 if the passenger did not survive and
@@ -18,17 +21,19 @@ The target variable for the analysis is Survived, a dummy variable that takes th
 |Parents/Children	   |Number of parents and children aboard the Titanic |
 |Fare	               |The amount each passenger paid for a his or her ticket |
 
-We carry out the Exploratory data analysis to visualize the dependence of different features on the chances of survival.
-Cross validation level 5 is carried out to find the depth giving maximum accuracy for the test dataset.
-Decision Tree classification using this depth is carried out and the
-feature with maximum contribution to the survival is calculated.
-From the analysis we conclude that the two best predictors of survival for Titanic passengers are sex and passenger class.
+We perform some exploratory data analysis to visualize the relationships between different features and the chances of survival. To find the optimal tree, we use 5-fold cross validation to find the optimal depth decision tree. We fit a decision tree with this depth and use the `feature_importances_` attribute to determine which two features are the best predictors of survival. We conclude that the two best predictors of survival for Titanic passengers are sex and passenger class.
 
 ## Usage
 
-Clone this repo, and using the command line, navigate to the root of this project.
+This analysis uses 4 scripts which need to be run in the following order to execute the analysis: 
 
-Run the following commands:
+1. `cleaning.R`, a script to load and clean the data
+2. `eda.R`, a script that produces some plots for exploratory data analysis
+3. `hyperparameter-tuning.py`, a script that performs 5-fold cross validation to find the best depth for the decision tree, including a plot of the validation performance for different depths
+4. `fit-decision-tree.py`, a script that fits a depth-3  decision tree and produces a plot of the `feature_importances_`
+
+
+To execute this analysis, clone this repository, navigate to the root of this project, and run the following commands in the Unix shell.  
 
 ``` sh
 Rscript src/cleaning.R 'data/train.csv' 'data/titanic_data.csv'
@@ -38,32 +43,24 @@ python src/fit-decision-tree.py 'data' 'results'
 Rscript -e "rmarkdown::render('doc/report_titanic-predictors.Rmd')"
 ```
 
-or on your command shell
+Alternatively, you can just execute the `run_all.sh` script from the command line once you are at the root of the project directory.
 
 ```sh
 bash run_all.sh
-The report will be generated under the doc/directory
 ```
+The final output is a report in pdf format called `report_titanic-predictors.pdf`. This can be found in the `doc` directory. 
 
-
-
-The analysis contains 4 scripts which need to be run in the same order in run_all.sh script:
-
-- cleaning.R
-- eda.R
-- hyperparameter-tuning.py
-- fit-decision-tree.py
-
-Flowchart with details of execution, inputs and outputs for each script:
+Below is a flowchart with details regarding the inputs and outputs for each script:
 
 ![Execution workflow](doc/Execution_workflow.png)
 
 
-## Package Dependencies
-R version 3.5 or above and Python 3.0 is recommended to be used for running this analysis.
+## Dependencies
 
-To run the analysis following packages need to be installed.
-They have been preloaded in the scripts.
+This analysis was developed using R version 3.5  and Python 3.6.  
+
+To run the analysis, the following packages are used in the scripts and should be installed on your computer before running the analysis.
+
 
 | R     | Python    |
 | :------------- | :------------- |
