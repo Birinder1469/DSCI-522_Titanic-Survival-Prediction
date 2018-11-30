@@ -33,7 +33,7 @@ main <- function(){
   titanic_data <- titanic_data %>% 
     mutate(Survived = fct_recode(titanic_data$Survived,
                       "Survived" = "1",
-                      "Did not Survive" = "0"),
+                      "Died" = "0"),
            Sex = fct_recode(titanic_data$Sex,
                             "Female" = "0",
                             "Male" = "1"))
@@ -44,7 +44,8 @@ main <- function(){
     geom_boxplot() +
     geom_jitter(alpha = 0.2) +
     ggtitle("Survival vs Age") +
-    xlab(" ")
+    xlab(" ")+theme_bw()+
+    theme(plot.title=element_text(size= 30 ), strip.text=element_text(size=25), text= element_text(size=26))
   
   # box plot of port of fare vs survival
   boxplot_fare <- titanic_data %>% 
@@ -53,7 +54,8 @@ main <- function(){
     geom_jitter(alpha = 0.2) +
     ylim(0, 135) +
     ggtitle("Survival vs Fare") +
-    xlab(" ")
+    xlab(" ")+theme_bw()+
+    theme(plot.title=element_text(size= 30 ), strip.text=element_text(size=25), text= element_text(size=26))
   
   # bar plot of count of survivors
   barplot_survival <- titanic_data %>% 
@@ -67,7 +69,8 @@ main <- function(){
     geom_bar() +
     facet_wrap(~Sex) +
     ggtitle("Survival by Sex") +
-    xlab(" ")
+    xlab(" ")+theme_bw()+
+    theme(plot.title=element_text(size= 30 ), strip.text=element_text(size=25), text= element_text(size=27))
   
   # bar plot of port of passenger class vs survival
   barplot_class_survival <- titanic_data %>% 
@@ -75,7 +78,9 @@ main <- function(){
     geom_bar() +
     facet_wrap(~Pclass) +
     ggtitle("Survival by Cabin Class") +
-    xlab(" ")
+    xlab(" ")+theme_bw()+
+    theme(plot.title=element_text(size= 30 ), 
+          strip.text=element_text(size=25), text= element_text(size=23))
   
   # bar plot of port of embarkation vs survival
   barplot_port_survival <- titanic_data %>% 
@@ -87,7 +92,8 @@ main <- function(){
     geom_bar() +
     facet_wrap(~Embarked) +
     ggtitle("Survival by Embarkation Port")+
-    xlab(" ")
+    xlab(" ")+theme_bw()+
+    theme(plot.title=element_text(size= 30 ), strip.text=element_text(size=23), text= element_text(size=23))
   
   # save plots
   ggsave("eda_boxplot-age-survival.png", plot = boxplot_age, device = "png",
