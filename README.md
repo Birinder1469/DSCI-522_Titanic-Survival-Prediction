@@ -1,4 +1,5 @@
-# Predictors of Survival for Titanic Passengers
+
+train# Predictors of Survival for Titanic Passengers
 
 Team members:  
 Alden Chen (aldenchen)  

@@ -1,0 +1,10 @@
+
+
+data/titanic_data : data/train.csv src/cleaning.R
+	Rscript src/cleaning.R data/train.csv data/titanic_data
+
+results/eda_boxplot-age-survival.png results/eda_boxplot-fare-survival.png results/eda_barplot-survival.png results/eda_barplot-sex-survival.png results/eda_barplot-class-survival.png results/eda_barplot-port-survival.png : data/titanic_data.csv src/eda.R
+	Rscript src/eda.R data/titanic_data.csv results/eda_boxplot-age-survival.png results/eda_boxplot-fare-survival.png results/eda_barplot-survival.png results/eda_barplot-sex-survival.png results/eda_barplot-class-survival.png results/eda_barplot-port-survival.png
+
+data/X_test.txt data/X_train.txt data/y_test.txt data/y_train.txt results/validation_5-fold-performance-plot.png :  X_train.txt X_test.txt hyperparameter-tuning.py
+	Python src/hyperparameter-tuning.py data/X_train.txt data/X_test.txt
