@@ -24,8 +24,7 @@ Our target variable is `Survived`, a dummy variable that takes the value `0` is 
 |Port of Embarkation |Cherbourg, Queenstown, or Southampton |
 
 In this section, we look at some plots of the data and discuss their implications for prediction.  
-
-*Figure 1: Bar Plots, Number of Survivors by Passenger Class, Sex, and Port of Embarkation*
+ *Figure 1: Bar Plots, Counts of Survivors and Non-Survivors by Passenger Class, Sex, and Port of Embarkation*  
 ```{r fig.width=9, fig.height=5,echo=FALSE}
 library(png)
 library(grid)
@@ -34,14 +33,13 @@ img1 <-  rasterGrob(as.raster(readPNG("../results/eda_barplot-class-survival.png
 img2 <-  rasterGrob(as.raster(readPNG("../results/eda_barplot-sex-survival.png")), interpolate = FALSE)
 img3 <-  rasterGrob(as.raster(readPNG("../results/eda_barplot-port-survival.png")), interpolate = FALSE)
 grid.arrange(img1, img2, img3, ncol = 3)  
-```  
- 
+```    
+*Figure 1: Bar Plots, Number of Survivors by Passenger Class, Sex, and Port of Embarkation. Bars represent counts of survivors and non-survivors for each feature.*  
 
 In the three bar plots above, we compare the number of people who survived based on passengers' sex, port of embarkation, and cabin class. We can see that there appears to be a large difference between in the number of passengers that survived based on sex. For female passengers, there are more passengers who survived than passengers than died, while the opposite is true for male passengers.  We see a similar trend for cabin class. Among first class passengers, there are more survivors than non-survivors, while among third class passengers, there are many more non-survivors than survivors.This suggests that sex and passenger class could be important features for predicting survival.  
 
-For port of embarkation, the vast majority of passengers boarded at Southampton, which appears to have similar rates to Queenstown passengers. Cherbourg passengers seem to have a much higher survival rate than passengers who boarded at other ports. Given the small number of Cherbourg passengers, it is unclear if port of embarkation will be a good predictor of survival.  
-
-*Figure 2: Box Plots, Survival vs Age and Survival vs Fare*  
+For port of embarkation, the vast majority of passengers boarded at Southampton, which appears to have similar survival rates to Queenstown passengers. Cherbourg passengers seem to have a much higher survival rate than passengers who boarded at other ports. Given the small number of Cherbourg passengers, it is unclear if port of embarkation will be a good predictor of survival.  
+ 
 ```{r fig.width=6, fig.height=3,echo=FALSE}
 
 library(png)
@@ -51,7 +49,8 @@ img1 <-  rasterGrob(as.raster(readPNG("../results/eda_boxplot-age-survival.png")
 img2 <-  rasterGrob(as.raster(readPNG("../results/eda_boxplot-fare-survival.png")), interpolate = FALSE)
 grid.arrange(img1, img2, ncol = 2)
 
-```
+```  
+*Figure 2: Box Plots, Survival vs Age and Survival vs Fare. Five number summaries grouped by survival status for age and fare. A point represent a single observation.* 
 
 The box plots above show the distribution of ages and fares of the passengers based on whether or not they survived. There does not seems to be only a small difference in the ages of passengers who survived and those who did not, so age likely would not be a very important feature for predicting survival.  
 
@@ -68,7 +67,7 @@ library(grid)
 img <- readPNG("../results/validation_5-fold-performance-plot.png")
  grid.raster(img)
 ```  
-
+*Figure 3: Validation Performance, 5-Fold Cross Validation. *  
 
 ## Results  
 
@@ -82,6 +81,18 @@ img <- readPNG("../results/plot_feature-importance.png")
  grid.raster(img)
 ```
 
+## Limitations 
+One major limitation of our findings is that the model accuracy was 79% on our test set. We need to take this into consideration when we look at the feature importances. The ranking of features would be more meaningful if our model had more predictive power. Further, decision trees can change from one implementation to another based on changes in data, or sometimes randomness. As such, the feature importances could change from one implmentation to another, or if we used a different training set. However, given that the most important feature, sex, had far higher feature importances than any other feature, it seems reasonable to conclude that sex is still important predictor. Other features all seemed to have lower and fairly similar feature importances, so these may not be as meaningful. 
+
+Another limitation was the quality of the data set. For over 200 passengers, there were missing features for at least one feature, and we did not include those observations when training or testing the tree. We may have been able to fit a better model if these features were available. Also, our data did not include any information on crew members, who made up a large proportion of people aboard the Titanic. Including the crew members would result in a more complete analysis. 
+
+## Future Directions
+
+One possible idea to explore for future analyses could be feature engineering. Our dataset only had seven features. It may be possible to create some features from one or more of the original features that are better predictors of survival. For example, age was found not to be an important predictor in our analysis; however,  
+
+In addition, it could also be good idea to fit multiple decision trees of the same depth on different partitions of the training set, like in cross validation, when assessing the feature importances. In doing so, we could see how much the feature importances change from one implementation to the next, and compute an average of the importance scores for each feature. An average importance from multiple implementations would likely give us a more robust metric for comparing features. We could also consider using a different measure of importance, such as the Shapley Additive Explanation (SHAP), which can provide a more detailed analysis of how each feature if affecting the prediction.  
+
+We could also consider more nuanced metrics of performance, such as precision, recall, or auc,  rather than just accuracy when validating the tree and selecting the hyperparameters. This could result in a different choice of depth and different notions of performance. Also, we could also explore using these metrics to tune other hyperparameters of the decision tree, such as `max_features`, `min_samples_split`, and `min_samples_leaf`.  
 
 
 ## References
