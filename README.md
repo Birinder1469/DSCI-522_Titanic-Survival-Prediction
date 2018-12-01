@@ -26,7 +26,7 @@ We perform some exploratory data analysis to visualize the relationships between
 
 ## Usage
 
-This analysis uses 4 scripts which need to be run in the following order to execute the analysis: 
+This analysis uses 4 scripts which need to be run in the following order to execute the analysis:
 
 1. `cleaning.R`, a script to load and clean the data
 2. `eda.R`, a script that produces some plots for exploratory data analysis
@@ -49,7 +49,7 @@ Alternatively, you can just execute the `run_all.sh` script from the command lin
 ```sh
 bash run_all.sh
 ```
-The final output is a report in pdf format called `report_titanic-predictors.pdf`. This can be found in the `doc` directory. 
+The final output is a report in pdf format called `report_titanic-predictors.pdf`. This can be found in the `doc` directory.
 
 Below is a flowchart with details regarding the inputs and outputs for each script:
 
@@ -63,12 +63,12 @@ This analysis was developed using R version 3.5  and Python 3.6.
 To run the analysis, the following packages are used in the scripts and should be installed on your computer before running the analysis.
 
 
-| R     | Python    |
+| R  3.5.1   | Python  3.6.5  |
 | :------------- | :------------- |
-| `ggplot2`       |`` pandas  ``    |
-| `tidyverse`       |`` numpy  ``     |
-| `grid `    |`` sklearn  ``   |
-| `png`       | `argparse `      |
-| `gridExtra `      | `graphviz `    |
-|       | `matplotlib`       |
+| `ggplot2 3.0.0 `       |`` pandas  0.23.0`    |
+| `tidyverse 1.2.1`       |`` numpy  1.14.3``     |
+| `grid 3.5.1 `    |`` sklearn  0.19.1``   |
+| `png`       | `argparse 3.2`      |
+| `gridExtra `      | `graphviz 0.10.1`    |
+|       | `matplotlib 2.2.2`       |
 |        | `os `     |
