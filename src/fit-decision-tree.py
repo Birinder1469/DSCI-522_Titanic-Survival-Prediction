@@ -40,13 +40,15 @@ def save_and_show_decision_tree(model,
 def main():
 
     # load training and test data
-    X_train=np.loadtxt(args.input_file_location+'/X_train.txt')
-    y_train=np.loadtxt(args.input_file_location+'/y_train.txt')
+    X_train = np.loadtxt(args.input_file_location + '/X_train.txt')
+    y_train = np.loadtxt(args.input_file_location + '/y_train.txt')
+    X_test = np.loadtxt(args.input_file_location + '/X_test.txt' )
+    y_test = np.loadtxt(args.input_file_location + '/y_test.txt' )
 
 
     # initialize depth-3 decision tree
-    model=tree.DecisionTreeClassifier(max_depth=3)
-    model.fit(X_train,y_train)
+    model = tree.DecisionTreeClassifier(max_depth=3)
+    model.fit(X_train, y_train)
 
     # save a plot of the decision tree
     save_and_show_decision_tree(model)
@@ -58,6 +60,10 @@ def main():
     plt.title('Feature Importances')
     plt.ylabel('Feature importance')
     plt.savefig(args.output_file_location+'/plot_feature-importance.png')
+    
+    accuracy = model.score(X_test, y_test)
+    print("Model Score:", accuracy)
+    
 
 if __name__ == "__main__":
     main()

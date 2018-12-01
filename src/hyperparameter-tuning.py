@@ -53,7 +53,7 @@ def main():
     accuracy = []
     
     # 5-fold cross validation
-    depths = range(1, 51)
+    depths = range(1, 21)
     for i in depths:
         tree = DecisionTreeClassifier(max_depth = i)
         tree.fit(X_train, y_train)
