@@ -68,7 +68,7 @@ To run the analysis, the following packages are used in the scripts and should b
 | `ggplot2 3.0.0 `       |`` pandas  0.23.0``    |
 | `tidyverse 1.2.1`       |`` numpy  1.14.3``     |
 | `grid 3.5.1 `    |`` sklearn  0.19.1``   |
-| `png`       | `argparse 3.2`      |
-| `gridExtra `      | `graphviz 0.10.1`    |
+| `png 0.1.7`       | `argparse 3.2`      |
+| `gridExtra 2.3`      | `graphviz 0.10.1`    |
 |       | `matplotlib 2.2.2`       |
 |        | `os `     |
