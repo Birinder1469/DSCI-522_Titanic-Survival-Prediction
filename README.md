@@ -34,11 +34,13 @@ This analysis uses 4 scripts which need to be run in the following order to exec
 4. `fit-decision-tree.py`, a script that fits a depth-3  decision tree and produces a plot of the `feature_importances_`
 
 
+
 To execute this analysis, clone this repository, navigate to the root of this project, and run the following commands in the Unix shell.  
 
 ``` sh
 make all
 ```
+
 
 Alternatively, you can just execute the `run_all.sh` script from the command line once you are at the root of the project directory.
 
@@ -46,19 +48,14 @@ Alternatively, you can just execute the `run_all.sh` script from the command lin
 bash run_all.sh
 ```
 
+
 Run the following commands to clean the previously generated results :
 
 ``` sh
 make clean
 ```
 
-``` sh
-Rscript src/cleaning.R 'data/train.csv' 'data/titanic_data.csv'
-Rscript src/eda.R 'data/titanic_data.csv' 'results'
-python src/hyperparameter-tuning.py 'data/titanic_data.csv' 'data' 'results'
-python src/fit-decision-tree.py 'data' 'results'
-Rscript -e "rmarkdown::render('doc/report_titanic-predictors.Rmd')"
-```
+
 
 The final output is a report in pdf format called `report_titanic-predictors.pdf`. This can be found in the `doc` directory.
 
