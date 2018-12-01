@@ -69,7 +69,7 @@ Below is a flowchart with details regarding the inputs and outputs for each scri
 
 ## Dependencies
 
-This analysis was developed using R version 3.5  and Python 3.6.  
+This analysis was developed using R version 3.5.1  and Python 3.6.5  
 
 To run the analysis, the following packages are used in the scripts and should be installed on your computer before running the analysis.
 
