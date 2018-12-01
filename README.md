@@ -26,7 +26,7 @@ We perform some exploratory data analysis to visualize the relationships between
 
 ## Usage
 
-This analysis uses 4 scripts which need to be run in the following order to execute the analysis: 
+This analysis uses 4 scripts which need to be run in the following order to execute the analysis:
 
 1. `cleaning.R`, a script to load and clean the data
 2. `eda.R`, a script that produces some plots for exploratory data analysis
@@ -34,24 +34,35 @@ This analysis uses 4 scripts which need to be run in the following order to exec
 4. `fit-decision-tree.py`, a script that fits a depth-3  decision tree and produces a plot of the `feature_importances_`
 
 
-To execute this analysis, clone this repository, navigate to the root of this project, and run the following commands in the Unix shell.  
+
+To execute this analysis, clone this repository, navigate to the root of this project, and run the following command in the Unix shell.  
 
 ``` sh
-Rscript src/cleaning.R 'data/train.csv' 'data/titanic_data.csv'
-Rscript src/eda.R 'data/titanic_data.csv' 'results'
-python src/hyperparameter-tuning.py 'data/titanic_data.csv' 'data' 'results'
-python src/fit-decision-tree.py 'data' 'results'
-Rscript -e "rmarkdown::render('doc/report_titanic-predictors.Rmd')"
+make all
 ```
+
 
 Alternatively, you can just execute the `run_all.sh` script from the command line once you are at the root of the project directory.
 
 ```sh
 bash run_all.sh
 ```
-The final output is a report in pdf format called `report_titanic-predictors.pdf`. This can be found in the `doc` directory. 
 
-Below is a flowchart with details regarding the inputs and outputs for each script:
+
+Run the following command to clean the previously generated results
+
+``` sh
+make clean
+```
+
+
+
+The final output is a report in pdf format called `report_titanic-predictors.pdf`. This can be found in the `doc` directory. <br><br><br>
+
+
+
+
+Below is a flowchart with details regarding the inputs and outputs for each script
 
 ![Execution workflow](doc/Execution_workflow.png)
 
@@ -63,12 +74,12 @@ This analysis was developed using R version 3.5  and Python 3.6.
 To run the analysis, the following packages are used in the scripts and should be installed on your computer before running the analysis.
 
 
-| R     | Python    |
+| R  v3.5.1   | Python  v3.6.5  |
 | :------------- | :------------- |
-| `ggplot2`       |`` pandas  ``    |
-| `tidyverse`       |`` numpy  ``     |
-| `grid `    |`` sklearn  ``   |
-| `png`       | `argparse `      |
-| `gridExtra `      | `graphviz `    |
-|       | `matplotlib`       |
+| `ggplot2 v3.0.0 `       |`` pandas  v0.23.0``    |
+| `tidyverse v1.2.1`       |`` numpy  v1.14.3``     |
+| `grid v3.5.1 `    |`` sklearn  v0.19.1``   |
+| `png v0.1.7`       | `argparse v3.2`      |
+| `gridExtra v2.3`      | `graphviz v0.10.1`    |
+|       | `matplotlib v2.2.2`       |
 |        | `os `     |
