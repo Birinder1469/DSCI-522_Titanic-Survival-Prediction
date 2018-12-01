@@ -35,7 +35,7 @@ This analysis uses 4 scripts which need to be run in the following order to exec
 
 
 
-To execute this analysis, clone this repository, navigate to the root of this project, and run the following commands in the Unix shell.  
+To execute this analysis, clone this repository, navigate to the root of this project, and run the following command in the Unix shell.  
 
 ``` sh
 make all
@@ -49,7 +49,7 @@ bash run_all.sh
 ```
 
 
-Run the following commands to clean the previously generated results :
+Run the following command to clean the previously generated results
 
 ``` sh
 make clean
@@ -57,9 +57,12 @@ make clean
 
 
 
-The final output is a report in pdf format called `report_titanic-predictors.pdf`. This can be found in the `doc` directory.
+The final output is a report in pdf format called `report_titanic-predictors.pdf`. This can be found in the `doc` directory. <br><br><br>
 
-Below is a flowchart with details regarding the inputs and outputs for each script:
+
+
+
+Below is a flowchart with details regarding the inputs and outputs for each script
 
 ![Execution workflow](doc/Execution_workflow.png)
 
@@ -71,12 +74,12 @@ This analysis was developed using R version 3.5  and Python 3.6.
 To run the analysis, the following packages are used in the scripts and should be installed on your computer before running the analysis.
 
 
-| R  3.5.1   | Python  3.6.5  |
+| R  v3.5.1   | Python  v3.6.5  |
 | :------------- | :------------- |
-| `ggplot2 3.0.0 `       |`` pandas  0.23.0``    |
-| `tidyverse 1.2.1`       |`` numpy  1.14.3``     |
-| `grid 3.5.1 `    |`` sklearn  0.19.1``   |
-| `png 0.1.7`       | `argparse 3.2`      |
-| `gridExtra 2.3`      | `graphviz 0.10.1`    |
-|       | `matplotlib 2.2.2`       |
+| `ggplot2 v3.0.0 `       |`` pandas  v0.23.0``    |
+| `tidyverse v1.2.1`       |`` numpy  v1.14.3``     |
+| `grid v3.5.1 `    |`` sklearn  v0.19.1``   |
+| `png v0.1.7`       | `argparse v3.2`      |
+| `gridExtra v2.3`      | `graphviz v0.10.1`    |
+|       | `matplotlib v2.2.2`       |
 |        | `os `     |
