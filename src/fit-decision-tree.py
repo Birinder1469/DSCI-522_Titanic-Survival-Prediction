@@ -1,9 +1,9 @@
-##! /usr/bin/env Rscript 
+##! /usr/bin/env Rscript
 # Authors: Alden Chen, Birinder Singh
 # Date: 2018/11/23
 # This script takes in the training dataset and fits a depth 3 decision tree.
 # It also computes the feature importance for the tree and produces a plot.
-# A plot of the tree and a plot of the feature importances are saved 
+# A plot of the tree and a plot of the feature importances are saved
 # usage: python src/fit-decision-tree.py "data" "results"
 
 # Import required libraries
@@ -12,6 +12,8 @@ import numpy as np
 from sklearn import tree
 import graphviz
 import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
 
 # Parse Command line arguments
 parser=argparse.ArgumentParser()
@@ -24,7 +26,7 @@ def save_and_show_decision_tree(model,
                                 class_names=[0,1],
                                 save_file_prefix = args.output_file_location + '/plot_decision-tree', **kwargs):
 
-    features=["Pclass", "Sex", "Age", "SibSp", "Parch", "Fare", "Embarked" ]
+    features=["1. Pclass", "2. Sex", "3. Age", "4. SibSp", "Parch", "Fare", "Embarked" ]
     dot_data = tree.export_graphviz(model, out_file=None,
                                  feature_names=features,
                                  class_names=['Not Survived','Survived'],
@@ -54,16 +56,24 @@ def main():
     save_and_show_decision_tree(model)
 
     # plot feature importances
-    features=["Pclass", "Sex", "Age", "SibSp", "Parch", "Fare", "Embarked" ]
-    plt.bar(features,model.feature_importances_);
+
+
+    features=["Pclass", "Sex", "Age", "SibSp", 
+              "Parch", "Fare", "Embarked" ]
+    importances = model.feature_importances_
+
+
+    sns.barplot(x = features, y = importances,
+                order = ['Sex', 'Pclass', 'Age',
+                         'Fare', 'SibSp', 'Parch', 'Embarked']);
     plt.xlabel('Feature names ')
     plt.title('Feature Importances')
     plt.ylabel('Feature importance')
     plt.savefig(args.output_file_location+'/plot_feature-importance.png')
-    
+
     accuracy = model.score(X_test, y_test)
     print("Model Score:", accuracy)
-    
+
 
 if __name__ == "__main__":
     main()

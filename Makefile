@@ -54,3 +54,4 @@ clean:
 	rm -f data/X_test.txt data/X_train.txt data/y_test.txt data/y_train.txt results/validation_5-fold-performance-plot.png
 	rm -f results/plot_decision-tree.png results/plot_feature-importance.png
 	rm -f doc/report_titanic-predictors.pdf
+	rm -f doc/report_titanic-prediction.tex
