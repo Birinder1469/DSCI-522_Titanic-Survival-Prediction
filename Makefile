@@ -26,7 +26,7 @@ data/titanic_data.csv : data/train.csv src/cleaning.R
 	Rscript src/cleaning.R data/train.csv data/titanic_data.csv
 
 # Step 2: Carries out the Exploratory Data Analysis on the titanic_data.csv and outputs the EDA lots
-results/eda_boxplot-age-survival.png results/eda_boxplot-fare-survival.png results/eda_barplot-survival.png results/eda_barplot-sex-survival.png results/eda_barplot-class-survival.png results/eda_barplot-port-survival.png : data/titanic_data.csv src/eda.R
+results/eda_boxplot-age-survival.png results/eda_boxplot-fare-survival.png results/eda_barplot-sex-survival.png results/eda_barplot-class-survival.png results/eda_barplot-port-survival.png : data/titanic_data.csv src/eda.R
 	Rscript src/eda.R data/titanic_data.csv results/
 
 # Step 3: Takes in the titanic_data.csv and carries out hyperparameter tuning to find the optimum depth of the tree with 5 fold cross validation
