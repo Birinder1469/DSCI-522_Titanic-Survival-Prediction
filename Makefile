@@ -15,7 +15,7 @@
 # - hyperparameter tuning
 # - fitting the decision tree and finding the most important feature.
 
-all : doc/report_titanic-predictors.pdf
+all : doc/report_titanic-predictors.md
 
 #################################
 # Steps involved in the analysis
@@ -40,8 +40,9 @@ results/plot_decision-tree.png results/plot_feature-importance.png :  data/X_tra
 	python src/fit-decision-tree.py data/ results/
 
 # Step 5: Prepares the report of the above analysis as a pdf file.
-doc/report_titanic-predictors.pdf : doc/report_titanic-predictors.Rmd results/eda_barplot-class-survival.png results/eda_barplot-sex-survival.png results/eda_barplot-port-survival.png results/eda_boxplot-age-survival.png results/eda_boxplot-fare-survival.png results/validation_5-fold-performance-plot.png results/plot_feature-importance.png results/plot_decision-tree.png
+doc/report_titanic-predictors.md doc/report_titanic-predictors.html : doc/report_titanic-predictors.Rmd results/eda_barplot-class-survival.png results/eda_barplot-sex-survival.png results/eda_barplot-port-survival.png results/eda_boxplot-age-survival.png results/eda_boxplot-fare-survival.png results/validation_5-fold-performance-plot.png results/plot_feature-importance.png results/plot_decision-tree.png
 	Rscript -e "rmarkdown::render('doc/report_titanic-predictors.Rmd')"
+
 
 ###########################
 # Remove all files
@@ -53,5 +54,5 @@ clean:
 	rm -f results/eda_boxplot-age-survival.png results/eda_boxplot-fare-survival.png results/eda_barplot-survival.png results/eda_barplot-sex-survival.png results/eda_barplot-class-survival.png results/eda_barplot-port-survival.png
 	rm -f data/X_test.txt data/X_train.txt data/y_test.txt data/y_train.txt results/validation_5-fold-performance-plot.png
 	rm -f results/plot_decision-tree.png results/plot_feature-importance.png
-	rm -f doc/report_titanic-predictors.pdf
-	rm -f doc/report_titanic-prediction.tex
+	rm -f doc/report_titanic-predictors.html
+	rm -f doc/report_titanic-prediction.md

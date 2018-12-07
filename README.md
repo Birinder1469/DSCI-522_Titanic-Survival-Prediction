@@ -13,14 +13,15 @@ What are the two strongest predictors of survival for Titanic passengers?
 The target variable for the analysis is Survived, a dummy variable that takes the value 0 if the passenger did not survive and
 1 if he or she did survive. We have data on 712 passengers for these seven features :
 
-|Feature	           |Description	                                    |
-|--------------------|-------------------------------------------------|
-|Passenger Class	   |First, Second or Third Class |
-|Sex	               |Male or Female |    
-|Age                 |Age of each passenger years	|
-|Siblings/Spouses	   |Number of siblings and spouses aboard the Titanic |
-|Parents/Children	   |Number of parents and children aboard the Titanic |
-|Fare	               |The amount each passenger paid for a his or her ticket |
+|Feature	           |Description	                                    | Type of Variable |
+|--------------------|-------------------------------------------------|-----------------|
+|Passenger Class	   |First, Second or Third Class | Categorical |
+|Sex	               |Male or Female |    Categorical |
+|Age                 |Age of each passenger years	| Numeric |
+|Siblings/Spouses	   |Number of siblings and spouses aboard the Titanic | Integer|
+|Parents/Children	   |Number of parents and children aboard the Titanic | Integer|
+|Fare	               |The amount each passenger paid for a his or her ticket | Numeric |
+|Port of Embarkation |Cherbourg, Queenstown, or Southampton |  Categorical | 
 
 We perform some exploratory data analysis to visualize the relationships between different features and the chances of survival. To find the optimal tree, we use 5-fold cross validation to find the optimal depth decision tree. We fit a decision tree with this depth and use the `feature_importances_` attribute to determine which two features are the best predictors of survival. We conclude that the two best predictors of survival for Titanic passengers are sex and passenger class.
 
