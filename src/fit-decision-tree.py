@@ -22,6 +22,8 @@ parser.add_argument('output_file_location')
 args=parser.parse_args()
 
 # function to save a plot of decision tree
+# This function is copied from code provided 
+#  by Mike in a DSCI 571 assignment.
 def save_and_show_decision_tree(model,
                                 class_names=[0,1],
                                 save_file_prefix = args.output_file_location + '/plot_decision-tree', **kwargs):
