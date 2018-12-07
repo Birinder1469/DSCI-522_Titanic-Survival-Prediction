@@ -91,7 +91,7 @@ img <- readPNG("../results/plot_decision-tree.png")
 
 ## Results  
 
-After fitting a model of depth three, we looked at the feature importances of our model. The plot below summarizes our results. We can see that the two best predictors of survival for Titanic passengers are sex and passenger class. We can also see this in the plot of the decision tree. The most powerful predictors were split on earlier in the decision tree. The first split is done based on sex. Then in the second level, the tree splits on age and passenger class, which are the next two most important predictors after sex.   
+After fitting a model of depth three, we looked at the feature importances of our model. The plot below summarizes our results. We can see that the two best predictors of survival for Titanic passengers are sex and passenger class. We can also see this in the plot of the decision tree. The most powerful predictors were split on earlier in the decision tree. The first split is done based on sex. Then in the second level, the tree splits on age and passenger class, which are the next two most important predictors after sex. Also, we see that features with 0 feature importance are not part of the tree at all.   
 
 This supports our initial observations from the exploratory plots that we produced, where we noted that female passengers and passengers from first class had higher rates of survival. Taken together, this suggests that being a female  and/or a first class passenger aboard the Titanic improved one's chance of survival.  
 
