@@ -31,16 +31,16 @@ results/eda_boxplot-age-survival.png results/eda_boxplot-fare-survival.png resul
 
 # Step 3: Takes in the titanic_data.csv and carries out hyperparameter tuning to find the optimum depth of the tree with 5 fold cross validation
 # Splits the data in Test and Train with (80:20 ratio)
-data/X_test.txt data/X_train.txt data/y_test.txt data/y_train.txt results/validation_5-fold-performance-plot.png :  data/titanic_data.csv src/hyperparameter-tuning.py
-	Python src/hyperparameter-tuning.py data/titanic_data.csv data/ results/
+data/X_test.txt data/X_train.txt data/y_test.txt data/y_train.txt results/validation_5-fold-performance-plot.png : data/titanic_data.csv src/hyperparameter-tuning.py
+	python src/hyperparameter-tuning.py data/titanic_data.csv data/ results/
 
 # Step 4: Takes in the Train and Test data and fits the decision tree with optimum tree depth obtained in step 3
 # Obtains the most important features and computes the train test accuracy
 results/plot_decision-tree.png results/plot_feature-importance.png :  data/X_train.txt data/y_train.txt data/X_test.txt data/y_test.txt src/fit-decision-tree.py
-	Python src/fit-decision-tree.py data/ results/
+	python src/fit-decision-tree.py data/ results/
 
 # Step 5: Prepares the report of the above analysis as a pdf file.
-doc/report_titanic-predictors.pdf : doc/report_titanic-predictors.Rmd results/eda_barplot-class-survival.png results/eda_barplot-sex-survival.png results/eda_barplot-port-survival.png results/eda_boxplot-age-survival.png results/eda_boxplot-fare-survival.png results/validation_5-fold-performance-plot.png results/plot_feature-importance.png
+doc/report_titanic-predictors.pdf : doc/report_titanic-predictors.Rmd results/eda_barplot-class-survival.png results/eda_barplot-sex-survival.png results/eda_barplot-port-survival.png results/eda_boxplot-age-survival.png results/eda_boxplot-fare-survival.png results/validation_5-fold-performance-plot.png results/plot_feature-importance.png results/plot_decision-tree.png
 	Rscript -e "rmarkdown::render('doc/report_titanic-predictors.Rmd')"
 
 ###########################

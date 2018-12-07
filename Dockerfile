@@ -1,3 +1,13 @@
+# run_all.sh
+# Authors: Alden Chen, Birinder Singh
+# Date: 2018/12/07
+# 
+# This Dockerfile builds a container from the rocker/tidyverse image
+# for our Titanic analysis project.
+#
+# Usage: docker run -it -e PASSWORD=test -v <file-path-to-project-root>:/titanic titanic /bin/bash
+
+
 # use rocker/tidyverse as the base image and
 FROM rocker/tidyverse
 
