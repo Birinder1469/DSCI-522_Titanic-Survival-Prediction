@@ -76,10 +76,10 @@ To run the analysis, the following packages are used in the scripts and should b
 
 | R  v3.5.1   | Python  v3.6.5  |
 | :------------- | :------------- |
-| `ggplot2 v3.0.0 `       |`` pandas  v0.23.0``    |
-| `tidyverse v1.2.1`       |`` numpy  v1.14.3``     |
-| `grid v3.5.1 `    |`` sklearn  v0.19.1``   |
-| `png v0.1.7`       | `argparse v3.2`      |
-| `gridExtra v2.3`      | `graphviz v0.10.1`    |
+|  `tidyverse v1.2.1`       |` pandas  v0.23.0`    |
+|   `png v0.1.7`   |`` numpy  v1.14.3``     |
+|  `gridExtra v2.3`   |`` sci-kit-learn  v0.19.1``   |
+|        | `argparse v3.2`      |
+|       | `graphviz v0.10.1`    |
 |       | `matplotlib v2.2.2`       |
 |        | `seaborn v0.9.0 `     |
