@@ -2,7 +2,7 @@
 title: "Predictors of Survival for Titanic Passengers"
 author: "Alden Chen, Birinder Singh"
 date: '2018-12-01'
-output: pdf_document
+output: github_document
 ---
 
 ## Introduction
